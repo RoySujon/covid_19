@@ -22,9 +22,9 @@ class _WorldStatesState extends State<WorldStates>
     super.dispose();
   }
 
+  StateServices _stateServices = StateServices();
   @override
   Widget build(BuildContext context) {
-    StateServices _stateServices = StateServices();
     return Scaffold(
       body: SafeArea(
         child: Padding(
