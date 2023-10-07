@@ -4,7 +4,7 @@ A new Flutter project.
 
 
 
-<img src="screenshot/covid_19.mov" width="400" height="300">
+<img src="screenshot/appdemo.gif" width="400" height="300">
 
   
 
