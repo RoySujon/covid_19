@@ -1,3 +1,5 @@
+import 'package:covid_19/View/details_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -35,38 +37,66 @@ class _CountryListScreenState extends State<CountryListScreen> {
           Expanded(
             child: FutureBuilder(
               future: _stateServices.fetchCountryListData(),
-              builder: (context, snapshot) {
+              builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
                   var data = snapshot.data;
 
                   return ListView.builder(
                     itemBuilder: (context, index) {
-                      String name = data[index]['country'];
+                      String name = data[index].country.toString();
                       if (_searchController.text.isEmpty) {
                         return ListTile(
-                          title: Text(data[index]['country']),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                  country: data[index].country.toString(),
+                                  population: data[index].population.toString(),
+                                  todayCases: data[index].todayCases.toString(),
+                                  flag: data[index].countryInfo.flag.toString(),
+                                  critical: data[index].critical.toString(),
+                                  recovered: data[index].recovered.toString(),
+                                  deaths: data[index].deaths.toString(),
+                                  cases: data[index].cases.toString(),
+                                ),
+                              )),
+                          title: Text(data[index].country.toString()),
                           leading: Image.network(
-                            data[index]['countryInfo']['flag'].toString(),
+                            data[index].countryInfo!.flag.toString(),
                             // height: 60,
                             width: 50,
 
                             fit: BoxFit.cover,
                           ),
-                          subtitle: Text(data[index]['cases'].toString()),
+                          subtitle: Text(data[index].cases.toString()),
                         );
                       } else if (name
                           .toLowerCase()
                           .contains(_searchController.text.toLowerCase())) {
                         return ListTile(
-                          title: Text(data[index]['country']),
+                          onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailsPage(
+                                  country: data[index].country.toString(),
+                                  population: data[index].population.toString(),
+                                  todayCases: data[index].todayCases.toString(),
+                                  flag: data[index].countryInfo.flag.toString(),
+                                  critical: data[index].critical.toString(),
+                                  recovered: data[index].recovered.toString(),
+                                  deaths: data[index].deaths.toString(),
+                                  cases: data[index].cases.toString(),
+                                ),
+                              )),
+                          title: Text(data[index].country.toString()),
                           leading: Image.network(
-                            data[index]['countryInfo']['flag'].toString(),
+                            data[index].countryInfo.flag.toString(),
                             // height: 60,
                             width: 50,
 
                             fit: BoxFit.cover,
                           ),
-                          subtitle: Text(data[index]['cases'].toString()),
+                          subtitle: Text(data[index].cases.toString()),
                         );
                       } else {
                         return SizedBox();

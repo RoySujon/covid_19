@@ -2,6 +2,7 @@ import 'package:covid_19/View/country_list.dart';
 import 'package:covid_19/services/states_services.dart';
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:covid_19/data/utils/utils.dart';
 
 class WorldStates extends StatefulWidget {
   const WorldStates({super.key});
@@ -89,7 +90,10 @@ class _WorldStatesState extends State<WorldStates>
                 );
               } else {
                 return Center(
-                  child: CircularProgressIndicator(),
+                  child: CircularProgressIndicator(
+                    color: Colors.red,
+                    backgroundColor: Colors.lightBlue,
+                  ),
                 );
               }
             },
@@ -97,31 +101,6 @@ class _WorldStatesState extends State<WorldStates>
           ),
         ),
       ),
-    );
-  }
-}
-
-class ReusableRow extends StatelessWidget {
-  const ReusableRow({super.key, required this.title, required this.value});
-
-  final String title, value;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text(title), Text(value)],
-          ),
-        ),
-        Divider(),
-        SizedBox(
-          height: 5,
-        )
-      ],
     );
   }
 }

@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
           ),
           SizedBox(height: MediaQuery.of(context).size.height * .02),
           Text(
-            'Covid-19\nTrancker App',
+            'Covid-19\nUpdate',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 30, fontWeight: FontWeight.w400),
           ),
