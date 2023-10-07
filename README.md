@@ -9,17 +9,18 @@ A new Flutter project.
   
 
 ```
-├── data
+lib/
+├── data/
 │   ├── url
 │   │   └── app_url.dart
 │   └── utils
 │       └── utils.dart
-├── model
+├── model/
 │   ├── countries_list.dart
 │   └── world_states.dart
-├── services
+├── services/
 │   └── states_services.dart
-├── View
+├── View/
 │   ├── country_list.dart
 │   ├── details_page.dart
 │   ├── splash_screen.dart
